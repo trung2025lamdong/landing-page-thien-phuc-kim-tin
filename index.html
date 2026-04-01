@@ -1,319 +1,459 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checking your browser...</title>
+    <title>Thiên Phúc Kim Tín - Bảo hiểm Xã hội & Y tế</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --primary: #0056b3;
+            --primary-container: #003f87;
+            --secondary: #00658d;
+            --background: #f9f9ff;
+            --surface: #f9f9ff;
+            --on-surface: #191c21;
+            --surface-container-low: #f2f3fc;
+            --surface-container-lowest: #ffffff;
+            --outline-variant: #c2c6d4;
+            --radius-md: 0.375rem;
+            --radius-xl: 0.75rem;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-            background: #f1f5f9;
-            min-height: 100vh;
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--background);
+            color: var(--on-surface);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        header {
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 0.5rem;
         }
 
-        .card {
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-            padding: 36px 40px 32px;
-            width: 340px;
-            text-align: left;
-        }
-
-        .cf-logo {
+        nav ul {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 24px;
+            list-style: none;
+            gap: 2rem;
         }
 
-        .cf-logo svg {
-            width: 32px;
-            height: 32px;
-            flex-shrink: 0;
+        nav a {
+            text-decoration: none;
+            color: var(--on-surface);
+            font-weight: 500;
+            transition: var(--transition);
         }
 
-        .cf-logo-text {
-            font-size: 13px;
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-xl);
+            text-decoration: none;
             font-weight: 600;
-            color: #1a1a2e;
-            line-height: 1.2;
-        }
-
-        .cf-logo-sub {
-            font-size: 11px;
-            font-weight: 400;
-            color: #64748b;
-        }
-
-        .headline {
-            font-size: 17px;
-            font-weight: 600;
-            color: #0f172a;
-            margin-bottom: 6px;
-        }
-
-        .subline {
-            font-size: 13px;
-            color: #64748b;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        /* Checkbox widget */
-        .widget {
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
-            padding: 14px 16px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            background: #f8fafc;
-            margin-bottom: 16px;
+            display: inline-block;
+            transition: var(--transition);
+            border: none;
             cursor: pointer;
-            user-select: none;
-            transition: border-color 0.15s, background 0.15s;
         }
 
-        .widget:hover {
-            border-color: #94a3b8;
-            background: #f1f5f9;
+        .btn:hover {
+            background: var(--primary-container);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 86, 179, 0.2);
         }
 
-        .widget.verifying {
-            cursor: default;
-            border-color: #cbd5e1;
-        }
-
-        .widget.verified {
-            border-color: #22c55e;
-            background: #f0fdf4;
-            cursor: default;
-        }
-
-        /* The actual checkbox */
-        .cb-box {
-            width: 24px;
-            height: 24px;
-            border: 2px solid #9ca3af;
-            border-radius: 4px;
+        .hero {
+            padding: 4rem 0;
             display: flex;
             align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            background: #fff;
-            transition: border-color 0.15s, background 0.15s;
+            gap: 4rem;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-badge {
+            background: #d7e2ff;
+            color: #001a40;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            color: #424752;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            flex: 1;
             position: relative;
         }
 
-        .widget:hover .cb-box {
-            border-color: #6b7280;
+        .hero-image img {
+            width: 100%;
+            border-radius: var(--radius-xl);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
-        .widget.verifying .cb-box,
-        .widget.verified .cb-box {
-            border-color: transparent;
-            background: transparent;
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: -3rem;
+            position: relative;
+            z-index: 10;
         }
 
-        /* Spinner */
-        .spinner {
-            display: none;
-            width: 22px;
-            height: 22px;
-            border: 2.5px solid #e5e7eb;
-            border-top-color: #f6821f;
-            border-radius: 50%;
-            animation: spin 0.7s linear infinite;
-            flex-shrink: 0;
+        .stat-card {
+            background: var(--surface-container-lowest);
+            padding: 2rem;
+            border-radius: var(--radius-xl);
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
         }
 
-        /* Checkmark */
-        .checkmark {
-            display: none;
-            width: 22px;
-            height: 22px;
-            flex-shrink: 0;
+        .stat-label {
+            font-weight: 600;
+            color: #64748b;
         }
 
-        .checkmark circle {
-            fill: #22c55e;
+        .services {
+            padding: 6rem 0;
+            text-align: center;
         }
 
-        .checkmark path {
-            fill: none;
-            stroke: #fff;
-            stroke-width: 2.5;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
 
-        .widget-label {
-            font-size: 14px;
-            color: #374151;
-            font-weight: 500;
+        .section-subtitle {
+            color: #64748b;
+            margin-bottom: 3rem;
         }
 
-        .widget.verified .widget-label {
-            color: #15803d;
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
         }
 
-        /* CF branding footer */
-        .cf-footer {
+        .service-card {
+            background: var(--surface-container-lowest);
+            padding: 3rem;
+            border-radius: var(--radius-xl);
+            text-align: left;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            background: var(--surface-bright);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: #41befd;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-section {
+            padding: 6rem 0;
             display: flex;
             align-items: center;
-            justify-content: flex-end;
-            gap: 5px;
-            font-size: 10px;
-            color: #94a3b8;
+            gap: 4rem;
+            background: var(--surface-container-low);
         }
 
-        .cf-footer svg {
-            width: 14px;
-            height: 14px;
-            opacity: 0.5;
+        .profile-image {
+            flex: 1;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            height: 500px;
         }
 
-        .error-msg {
-            display: none;
-            font-size: 12px;
-            color: #dc2626;
-            margin-top: 8px;
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-content {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-weight: 800;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .lead-section {
+            padding: 6rem 0;
+            display: flex;
+            gap: 4rem;
+        }
+
+        .lead-info {
+            flex: 1;
+            background: var(--primary);
+            color: white;
+            padding: 3rem;
+            border-radius: var(--radius-xl);
+        }
+
+        .lead-form {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--outline-variant);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+        }
+
+        footer {
+            padding: 4rem 0;
+            border-top: 1px solid var(--outline-variant);
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
         }
     </style>
 </head>
 <body>
-<div class="card" role="main">
+    <div class="container">
+        <header>
+            <div class="logo">Thiên Phúc Kim Tín</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Trang chủ</a></li>
+                    <li><a href="#">Dịch vụ</a></li>
+                    <li><a href="#">Về chúng tôi</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn">Tư vấn miễn phí</a>
+        </header>
 
-    <!-- Logo row -->
-    <div class="cf-logo" aria-hidden="true">
-        <!-- Shield icon -->
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16 3L4 8v8c0 6.627 5.373 12 12 12s12-5.373 12-12V8L16 3z" fill="#f6821f"/>
-            <path d="M16 3L4 8v8c0 6.627 5.373 12 12 12V3z" fill="#faad3f" opacity="0.6"/>
-            <path d="M11 16l3 3 7-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <div>
-            <div class="cf-logo-text">contribution.usercontent.com</div>
-            <div class="cf-logo-sub">Security check</div>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-badge">Vì sự an tâm của khách hàng</span>
+                <h1>An tâm hơn với Bảo hiểm Xã hội & Y tế</h1>
+                <p>Chuyên gia Võ Thị Công Trịnh giúp Thiên Phúc Kim Tín của anh chị luôn vững bền về sức mạnh bảo vệ vững chắc cho tương lai.</p>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="#" class="btn">Bắt đầu tư vấn miễn phí</a>
+                    <a href="#" class="btn" style="background: white; color: var(--primary); border: 1px solid var(--primary);">Xem dịch vụ</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- Placeholder for shield illustration -->
+                <div style="background: #e1e7ff; height: 400px; border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+                    <svg width="120" height="120" viewBox="0 0 24 24" fill="var(--primary)" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.12v5.7c0 4.66-3.12 8.94-7 10-3.88-1.06-7-5.34-7-10v-5.7l7-3.12zM12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 2c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3z"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="stat-card">
+                <div class="stat-value">99%</div>
+                <div class="stat-label">Hỗ trợ thành công</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">24h</div>
+                <div class="stat-label">Thời gian phản hồi</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">0 VNĐ</div>
+                <div class="stat-label">Hỗ trợ tận tình</div>
+            </div>
+        </section>
+
+        <section class="services">
+            <h2 class="section-title">Giải pháp Bảo hiểm Toàn diện</h2>
+            <p class="section-subtitle">Chuyên gia hàng đầu đem tới các giải pháp tối ưu nhất, phù hợp nhất với nhu cầu của quý khách hàng.</p>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon"></div>
+                    <h3>Bảo hiểm xã hội (BHXH)</h3>
+                    <p>Công cụ quản lý BHXH cho doanh nghiệp</p>
+                    <p>Giải quyết chế độ thai sản, ốm đau, hưu trí</p>
+                    <p>Quản lý sổ BHXH và hợp nhất dữ liệu</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"></div>
+                    <h3>Bảo hiểm y tế (BHYT)</h3>
+                    <p>Cấp mới và gia hạn thẻ BHYT nhanh chóng</p>
+                    <p>Tư vấn quyền lợi khám chữa bệnh đúng tuyến</p>
+                    <p>Hỗ trợ thủ tục thanh toán chi phí y tế</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="profile-section">
+        <div class="container" style="display: flex; gap: 4rem; align-items: center;">
+            <div class="profile-image">
+                <!-- Placeholder for professional portrait -->
+                <div style="background: #ddd; height: 100%; border-radius: 20px;"></div>
+            </div>
+            <div class="profile-content">
+                <span style="color: var(--primary); font-weight: 600;">Về chúng tôi</span>
+                <h2 class="profile-name">Sự tận tâm tạo nên uy tín</h2>
+                <p>Với hơn 10 năm kinh nghiệm trong ngành bảo hiểm và tư vấn giải pháp, Thiên Phúc Kim Tín dưới sự dẫn dắt của Võ Thị Công Trịnh cam kết mang tới sự an tâm tuyệt đối cho khách hàng.</p>
+                <div style="display: flex; gap: 4rem; margin: 2rem 0;">
+                    <div>
+                        <div class="stat-value" style="font-size: 2rem;">15+</div>
+                        <p>Năm kinh nghiệm chuyên sâu</p>
+                    </div>
+                    <div>
+                        <div class="stat-value" style="font-size: 2rem;">5000+</div>
+                        <p>Khách hàng đã tin tưởng</p>
+                    </div>
+                </div>
+                <p><i>"Chúng tôi không chỉ cung cấp dịch vụ, chúng tôi xây dựng niềm tin."</i></p>
+                <p><strong>- Võ Thị Công Trịnh</strong></p>
+            </div>
         </div>
+    </section>
+
+    <div class="container">
+        <section class="lead-section">
+            <div class="lead-info">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Sẵn sàng bảo vệ tương lai của bạn?</h2>
+                <p style="opacity: 0.9; margin-bottom: 2rem;">Để lại thông tin, chuyên gia của chúng tôi sẽ liên hệ tư vấn chi tiết cho trường hợp của bạn.</p>
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <p>📞 09xx xxx xxx (Liên hệ ngay)</p>
+                    <p>✉️ contact@thienphuckimtin.vn</p>
+                </div>
+            </div>
+            <div class="lead-form">
+                <form>
+                    <div class="form-group">
+                        <label>Họ và tên</label>
+                        <input type="text" placeholder="Nhập họ và tên của bạn">
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại</label>
+                        <input type="tel" placeholder="Nhập số điện thoại">
+                    </div>
+                    <div class="form-group">
+                        <label>Dịch vụ quan tâm</label>
+                        <select>
+                            <option>Chọn dịch vụ cần tư vấn</option>
+                            <option>Bảo hiểm xã hội</option>
+                            <option>Bảo hiểm y tế</option>
+                            <option>Khác</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; padding: 1.25rem;">Gửi yêu cầu tư vấn</button>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-grid">
+                <div>
+                    <h3 style="color: var(--on-surface); margin-bottom: 1rem;">Thiên Phúc Kim Tín</h3>
+                    <p>Sứ mệnh của chúng tôi là mang lại sự an tâm và bảo vệ vững chắc cho mọi gia đình Việt.</p>
+                </div>
+                <div>
+                    <h3 style="color: var(--on-surface); margin-bottom: 1rem;">Liên kết nhanh</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#" style="color: inherit; text-decoration: none;">Bảo hiểm xã hội</a></li>
+                        <li><a href="#" style="color: inherit; text-decoration: none;">Bảo hiểm y tế</a></li>
+                        <li><a href="#" style="color: inherit; text-decoration: none;">Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color: var(--on-surface); margin-bottom: 1rem;">Văn phòng đại diện</h3>
+                    <p>📍 TP. Hồ Chí Minh / Lâm Đồng</p>
+                    <p>📞 1900 xxxx</p>
+                    <p>📧 info@thienphuckimtin.vn</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--outline-variant);">
+                © 2026 Thiên Phúc Kim Tín. Tất cả các quyền được bảo lưu.
+            </div>
+        </footer>
     </div>
-
-    <div class="headline">Checking your browser</div>
-    <p class="subline">Before you can access this site, we need to verify you&rsquo;re human.</p>
-
-    <!-- Interactive widget -->
-    
-    <div class="widget verifying" id="widget" role="status" aria-live="polite">
-        <!-- Spinner (auto-verifying) -->
-        <div class="spinner" id="spinner" style="display:block"></div>
-        <!-- Checkmark (verified state) -->
-        <svg class="checkmark" id="checkmark" viewBox="0 0 22 22" aria-hidden="true">
-            <circle cx="11" cy="11" r="11"/>
-            <path d="M6 11.5l3.5 3.5 6.5-7"/>
-        </svg>
-        <span class="widget-label" id="widget-label">Checking your browser&hellip;</span>
-    </div>
-    
-
-    <p class="error-msg" id="error-msg" role="alert">Verification failed. Please refresh and try again.</p>
-
-    <div class="cf-footer" aria-label="Security powered by site verification">
-        <!-- Small lock icon -->
-        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="3" y="7" width="10" height="7" rx="1.5" fill="#94a3b8"/>
-            <path d="M5 7V5a3 3 0 016 0v2" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        Privacy &bull; Security
-    </div>
-</div>
-
-<script>
-(function() {
-    var done = false;
-
-    window.startVerify = function() {
-        if (done) return;
-        done = true;
-
-        var widget  = document.getElementById('widget');
-        var spinner = document.getElementById('spinner');
-        var check   = document.getElementById('checkmark');
-        var label   = document.getElementById('widget-label');
-        var errMsg  = document.getElementById('error-msg');
-        var cbBox   = document.getElementById('cb-box');
-
-        // Transition to "verifying" state
-        widget.classList.add('verifying');
-        if (widget.hasAttribute('aria-checked')) {
-            widget.setAttribute('aria-checked', 'mixed');
-        }
-        if (cbBox) { cbBox.style.display = 'none'; }
-        spinner.style.display = 'block';
-        label.textContent     = 'Verifying\u2026';
-
-        // POST nonce to verification endpoint
-        fetch('/_challenge/complete', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                nonce: "b553efb2f69fae33177feec398588074.1775054802.1e07143e2e56d9fd337e6b574745507b7a5a4290bf368081eb216a2fc5e5abf1",
-                path:  "/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzQyZDE0NzNkYWMxOTQxNDE4ZjE4MWJiMTZhMzNmN2ZjEgsSBxC5g-PD-RsYAZIBJAoKcHJvamVjdF9pZBIWQhQxNDk2MjU5OTQ3NDY5NTg3NzM4NQ&filename=&opi=89354086"
-            }),
-            credentials: 'same-origin'
-        })
-        .then(function(res) {
-            if (!res.ok) { throw new Error('bad status ' + res.status); }
-            return res.json();
-        })
-        .then(function(data) {
-            if (!data.success) { throw new Error('not ok'); }
-
-            // Transition to "verified" state
-            spinner.style.display = 'none';
-            check.style.display   = 'block';
-            widget.classList.remove('verifying');
-            widget.classList.add('verified');
-            if (widget.hasAttribute('aria-checked')) {
-                widget.setAttribute('aria-checked', 'true');
-            }
-            label.textContent = 'Verified';
-
-            setTimeout(function() {
-                window.location.replace(data.redirect || '/');
-            }, 600);
-        })
-        .catch(function() {
-            done = false;
-            spinner.style.display = 'none';
-            if (cbBox) { cbBox.style.display = 'block'; }
-            widget.classList.remove('verifying');
-            if (widget.hasAttribute('aria-checked')) {
-                widget.setAttribute('aria-checked', 'false');
-            }
-            label.textContent         = 'I am human';
-            if (errMsg) { errMsg.style.display = 'block'; }
-        });
-    };
-
-    
-    // js_probe mode: auto-fire after 1.5 s — no user interaction required.
-    window.addEventListener('DOMContentLoaded', function() {
-        setTimeout(window.startVerify, 1500);
-    });
-    
-}());
-</script>
 </body>
 </html>
